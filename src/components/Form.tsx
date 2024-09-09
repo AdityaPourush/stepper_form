@@ -8,10 +8,10 @@ import { useMultiStepForm } from "./useMultiStepForm";
 
 const Form = () => {
 
-    const {steps, currentStepIndex, step, next, back} = useMultiStepForm([
-        <UserForm/>,
-        <AddressForm/>,
-        <AccountForm/>
+    const { steps, currentStepIndex, step, next, back } = useMultiStepForm([
+        <UserForm key="user-form" />,
+        <AddressForm key="address-form" />,
+        <AccountForm key="account-form" />
     ]);
 
     return (
@@ -22,12 +22,12 @@ const Form = () => {
                 </div>
                 {step}
                 <div className="flex justify-end gap-5">
-                    {currentStepIndex !=0 && <Button onClick={back}>Back</Button>}
+                    {currentStepIndex != 0 && <Button onClick={back}>Back</Button>}
                     {currentStepIndex != steps.length - 1 && <Button onClick={next}>Next</Button>}
                 </div>
             </div>
         </div>
-        
+
     )
 }
 
